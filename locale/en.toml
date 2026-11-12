@@ -1,0 +1,8 @@
+"ui.cover_magick.title" = "Cover Magick"
+"ui.magick_browse.title" = "Select magick executable"
+"options.magick_command" = "Path of magick command line utility"
+"options.cover_sampling_factor" = "Sampling factor for scaled covers"
+"qt.CoverMagickOptionsPage.window.title"="Cover Magick"
+"qt.CoverMagickOptionsPage.magick_command.label"="Full path of magick executable:"
+"qt.CoverMagickOptionsPage.magick_command.browse"="Browse..."
+"qt.CoverMagickOptionsPage.cover_sampling_factor.label"="Cover sampling factor:"

@@ -1,0 +1,32 @@
+uuid = "53ece5d9-505c-42a7-bc1b-ea99ec82b6b9"
+name = "Cover Magick"
+description = "Scale covers using image magick."
+api = ["3.0"]
+authors = ["Michael Beckh"]
+maintainers = ["Michael Beckh"]
+license = "Apache-2.0"
+license_url = "https://www.apache.org/licenses/LICENSE-2.0"
+long_description = """Scale covers using image magick.
+
+ImageMagick provides more options, e.g. for handling color spaces.
+
+The plugin disables the built-in processors for resizing and format conversion and instead uses ImageMagick.
+
+ImageMagick provides more options e.g. to handle color spaces in a way that provides better results. One such setting, sampling factor, is exposed in the options UI.
+Resizing algorithm (Lanczos) and contrast compensation are currently hard-coded.
+
+Besides, this also circumvents two (suppposed) problems:
+* When processing differs for tags and file targets things get "awkward" because Picard internally only handles one QImage for both targets.
+* If property `CoverArtImage.can_be_processed` is false, metadata is currently not updated.
+
+If *any other* cover processor is detected, the plugin currently throws an exception so that no processor is silently ignored.
+
+Processing respects the following options from Picard:
+* Width, height, resize mode and format for both tag and file targets.
+* Image quality setting
+"""
+categories = ["coverart"]
+homepage = "https://github.com/mbeckh/picard-plugin-cover-magick"
+report_bugs_to = "https://github.com/mbeckh/picard-plugin-cover-magick/issues"
+min_python_version = "3.14"
+source_locale = "en"
