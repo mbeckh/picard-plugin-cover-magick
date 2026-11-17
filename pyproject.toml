@@ -1,0 +1,147 @@
+[project]
+name="picard-plugin-cover-magick"
+authors = [{name = "Michael Beckh (mbeckh)"}]
+license = "Apache-2.0"
+requires-python=">=3.12"
+dependencies = [
+    "picard>=3.0.3",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.7.0",
+    "pymarkdownlnt>=0.9.41",
+    "ruff>=0.17.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/mbeckh/picard-plugin-cover-magick"
+Repository = "https://github.com/mbeckh/picard-plugin-cover-magick.git"
+Issues = "https://github.com/mbeckh/picard-plugin-cover-magick/issues"
+
+[tool.pymarkdown]
+plugins.blanks-around-fences.enabled = false
+plugins.blanks-around-headers.enabled = false
+plugins.blanks-around-lists.enabled = false
+plugins.line-length.enabled = false
+plugins.no-emphasis-as-heading.enabled = true
+plugins.no-duplicate-header.enabled = true
+plugins.no-duplicate-header.allow_different_nesting = true
+plugins.no-multiple-blanks.enabled = false
+plugins.single-h1.enabled = true
+plugins.emphasis-style.style = "underscore"
+plugins.strong-style.style = "asterisk"
+
+[tool.ruff]
+preview = true
+output-format = "concise"
+indent-width = 4
+line-length = 120
+exclude = [
+    ".git",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+    "monkey.py",
+    "ui",
+    "ui_compiled",
+]
+
+[tool.ruff.format]
+indent-style = "space"
+line-ending = "lf"
+quote-style = "preserve"
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint]
+future-annotations = true
+
+select = ["ALL"]
+ignore = [
+    "AIR",
+    # COM
+        "missing-trailing-comma",
+        "prohibited-trailing-comma",
+    "DJ",
+    # DOC
+        "docstring-extraneous-exception",
+    # E
+        "line-too-long",
+    "EM",
+    "EXE",
+    "FAST",
+    "NPY",
+    "PGH",
+    # PLW
+        "global-statement",
+    "PT",
+    # Q
+        "bad-quotes-inline-string",
+    # RUF
+        "non-empty-init-module",
+    # S
+        "start-process-with-no-shell",
+        "subprocess-without-shell-equals-true",
+        "suspicious-subprocess-import",
+    # SIM
+        "if-else-block-instead-of-if-exp",
+    "SLF",
+    "TD",
+    # TRY
+        "raise-vanilla-args",
+    # UP
+        "redundant-open-modes",
+]
+
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.per-file-ignores]
+"./__init__.py" = ["invalid-module-name"]
+
+[tool.ruff.lint.flake8-annotations]
+suppress-dummy-args = true
+
+[tool.ruff.lint.flake8-implicit-str-concat]
+allow-multiline = false
+
+[tool.ruff.lint.isort]
+section-order = [
+    "future",
+    "standard-library",
+    "first-party",
+    "known-first-party",
+    "third-party",
+    "known-third-party",
+    "qt",
+    "picard",
+    "picard-ui",
+    "local-folder",
+    "ui",
+]
+default-section = "third-party"
+force-sort-within-sections = true
+order-by-type = true
+combine-as-imports = true
+lines-after-imports = 2
+
+[tool.ruff.lint.isort.sections]
+qt = ["PyQt6"]
+picard = ["picard"]
+picard-ui = ["picard.ui"]
+ui = ["ui_compiled"]
+known-first-party = []
+known-third-party = ["dateutil", "fasteners", "mutagen", "yaml"]
+
+[tool.ruff.lint.pep8-naming]
+ignore-names = [
+    "_monkey_*",
+]
+
+[tool.ruff.lint.pylint]
+max-args = 10
+max-positional-args = 5
+max-statements-in-try = 10
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
