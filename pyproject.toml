@@ -4,7 +4,7 @@ authors = [{name = "Michael Beckh (mbeckh)"}]
 license = "Apache-2.0"
 requires-python=">=3.12"
 dependencies = [
-    "picard>=3.0.3",
+    "picard>=3.0.3,<=3.0.5",
 ]
 
 [dependency-groups]
@@ -12,6 +12,7 @@ dev = [
     "pre-commit>=4.7.0",
     "pymarkdownlnt>=0.9.41",
     "ruff>=0.17.5",
+    "rumdl>=0.3.4",
 ]
 
 [project.urls]
@@ -145,3 +146,14 @@ max-statements-in-try = 10
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.rumdl]
+flavor = "gfm"
+
+[tool.rumdl.no-trailing-spaces]
+strict = true
+
+[tool.rumdl.line-length]
+reflow = true
+reflow-mode = "normalize"
+code-block-line-length = 120
